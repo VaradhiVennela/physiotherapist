@@ -1538,6 +1538,66 @@ p {
     transform: translateY(0);
 }
 
+/* Device View Toggle Styles */
+.view-toggle {
+    display: none;
+    align-items: center;
+    gap: 12px;
+}
+
+.toggle-btn {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-standard);
+    box-shadow: 0 4px 12px rgba(26, 188, 156, 0.3);
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 188, 156, 0.4);
+}
+
+.toggle-label {
+    font-size: 12px;
+}
+
+.toggle-btn i {
+    font-size: 16px;
+}
+
+/* Desktop View - Show Toggle */
+@media (min-width: 1025px) {
+    .view-toggle {
+        display: flex !important;
+    }
+}
+
+/* Mobile View Simulation Class */
+body.mobile-view {
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    background: #f5f5f5 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 800"><rect fill="%23e0e0e0" width="480" height="800"/></svg>');
+    background-attachment: fixed;
+}
+
+body.mobile-view .view-toggle {
+    display: flex !important;
+}
+
+body.mobile-view .toggle-btn {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
 /* Responsive Design - Premium */
 @media (max-width: 1024px) {
     h1 { font-size: 2.75rem; }
@@ -1907,5 +1967,24 @@ p {
 
     .footer {
         padding: 40px 16px 16px;
+    }
+
+    .view-toggle {
+        display: none;
+    }
+}
+/* Adjustments for screens smaller than 768px */
+@media (max-width: 768px) {
+    .navbar {
+        /* Ensure your menu is accessible, perhaps a hamburger menu */
+    }
+    
+    .hero-section {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    img {
+        max-width: 100%;
+        height: auto; /* Prevents images from breaking the layout */
     }
 }

@@ -334,6 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupBookingModal();
     setupActiveNavLinks();
     setupNavbarAutoHide();
+    setupDeviceToggle();
 });
 
 // Create missing UI elements if they don't exist: theme toggle, book button, back-to-top
@@ -450,6 +451,40 @@ function setupActiveNavLinks(){
     }, { threshold: 0.55 });
 
     sections.forEach(s => obs.observe(s));
+}
+
+// Mobile Preview Toggle
+function setupDeviceToggle() {
+    const deviceToggle = document.getElementById('deviceToggle');
+    if (!deviceToggle) return;
+
+    // Load saved preference
+    const savedViewMode = localStorage.getItem('viewMode') || 'desktop';
+    if (savedViewMode === 'mobile') {
+        document.body.classList.add('mobile-view');
+        updateToggleButton();
+    }
+
+    deviceToggle.addEventListener('click', () => {
+        document.body.classList.toggle('mobile-view');
+        const isMobileView = document.body.classList.contains('mobile-view');
+        localStorage.setItem('viewMode', isMobileView ? 'mobile' : 'desktop');
+        updateToggleButton();
+    });
+
+    function updateToggleButton() {
+        const isMobileView = document.body.classList.contains('mobile-view');
+        const icon = deviceToggle.querySelector('i');
+        const label = deviceToggle.querySelector('.toggle-label');
+        
+        if (isMobileView) {
+            icon.className = 'fas fa-desktop';
+            label.textContent = 'Desktop';
+        } else {
+            icon.className = 'fas fa-mobile-alt';
+            label.textContent = 'Mobile';
+        }
+    }
 }
 
 // Hide navbar on scroll down, show on scroll up
