@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhysioTherapy Pro - Professional Physiotherapy Services</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-heart-pulse"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">PhysioTherapy</span>
+          <span class="logo-sub">Pro</span>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="" class="nav-link whatsapp-link" target="_blank" title="Chat on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <span class="hero-badge">✨ Excellence in Healthcare</span>
+        <h1 class="hero-title">
+          <span class="title-highlight">Transform Your Health</span>
+          <span class="title-normal">With Expert Physiotherapy</span>
+        </h1>
+        <p class="hero-subtitle">Experience world-class rehabilitation services designed to restore your mobility, reduce pain, and improve your quality of life</p>
+                
+        <div class="cta-group">
+          <button class="cta-button primary-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+            <span>Get Started</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <button class="cta-button secondary-btn" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+            <span>Learn More</span>
+            <i class="fas fa-play-circle"></i>
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">Happy Patients</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <div class="hero-image-bg">
+            <div class="glow-circle glow-1"></div>
+            <div class="glow-circle glow-2"></div>
+          </div>
+          <div class="hero-placeholder">
+            <i class="fas fa-user-nurse"></i>
+          </div>
+          <div class="hero-card card-1">
+            <i class="fas fa-heart"></i>
+            <span>Health First</span>
+          </div>
+          <div class="hero-card card-2">
+            <i class="fas fa-star"></i>
+            <span>5-Star Care</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <p class="section-subtitle">Comprehensive physiotherapy treatments tailored for your needs</p>
+            
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Sports Injury Treatment</h3>
+          <p>Professional treatment and rehabilitation for sports-related injuries with proven recovery techniques.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-spine"></i>
+          </div>
+          <h3>Back & Neck Pain</h3>
+          <p>Specialized care for chronic and acute back and neck pain using modern therapeutic methods.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-person-walking"></i>
+          </div>
+          <h3>Rehabilitation</h3>
+          <p>Post-operative and post-injury rehabilitation programs to restore full function and mobility.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <h3>Strength Training</h3>
+          <p>Customized strength and conditioning programs to improve muscle tone and physical fitness.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-hand"></i>
+          </div>
+          <h3>Joint Therapy</h3>
+          <p>Advanced joint and arthritis treatment including manual therapy and exercise programs.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Ergonomic Counseling</h3>
+          <p>Professional guidance on proper posture and ergonomics to prevent workplace injuries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="statistics">
+    <div class="container">
+      <h2>Our Success in Numbers</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="5000">0</h3>
+            <p>Happy Patients</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="15">0</h3>
+            <p>Years Experience</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="98">0</h3>
+            <p>Success Rate %</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-smile"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="100">0</h3>
+            <p>Client Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Why Choose Us?</h2>
+          <ul class="benefits-list">
+            <li><i class="fas fa-check-circle"></i> Certified and Licensed Physiotherapists</li>
+            <li><i class="fas fa-check-circle"></i> State-of-the-art Treatment Equipment</li>
+            <li><i class="fas fa-check-circle"></i> Personalized Treatment Plans</li>
+            <li><i class="fas fa-check-circle"></i> Fast and Effective Recovery</li>
+            <li><i class="fas fa-check-circle"></i> Professional and Friendly Staff</li>
+            <li><i class="fas fa-check-circle"></i> Convenient Appointment Scheduling</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <div class="about-placeholder">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <div class="container">
+      <h2>Meet Our Experts</h2>
+      <p class="section-subtitle">Highly qualified professionals dedicated to your health</p>
+            
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-image">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <h3>Dr. Sarah Johnson</h3>
+          <p class="team-role">Chief Physiotherapist</p>
+          <p class="team-bio">15+ years of experience in sports injury rehabilitation</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <i class="fas fa-user-nurse"></i>
+          </div>
+          <h3>Dr. Michael Chen</h3>
+          <p class="team-role">Orthopedic Specialist</p>
+          <p class="team-bio">Specialized in joint therapy and rehabilitation programs</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <h3>Dr. Emily Rodriguez</h3>
+          <p class="team-role">Wellness Coach</p>
+          <p class="team-bio">Expert in ergonomic counseling and preventive care</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Patients Say</h2>
+      <p class="section-subtitle">Real stories from people who regained their mobility</p>
+            
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"I was skeptical at first, but the results speak for themselves. Within 6 weeks, my back pain was completely gone!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>John Smith</h4>
+              <p>Back Pain Recovery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Professional, caring, and incredibly effective. The therapists really understand their craft. Highly recommended!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Maria Garcia</h4>
+              <p>Sports Injury Rehabilitation</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"After my surgery, I was worried about my recovery. Their personalized plan made all the difference. Truly exceptional care!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Robert Wilson</h4>
+              <p>Post-Surgery Recovery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <p class="section-subtitle">We're here to help you on your journey to better health</p>
+            
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Location</h3>
+          <p>123 Health Street<br>Medical Center Plaza<br>Your City, State 12345</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>Phone</h3>
+          <p>+1 (555) 123-4567<br>Mon - Fri: 8am - 6pm<br>Sat: 9am - 2pm</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>Quick Response<br>+1 (555) 123-4567<br>Chat Now</p>
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <form class="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Your Phone" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="How can we help?" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Button (Floating) -->
+  <a href="" target="_blank" class="whatsapp-float" id="whatsappFloat" title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>PhysioTherapy Pro</h4>
+          <p>Providing professional physiotherapy services to help you recover and thrive.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PhysioTherapy Pro. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
