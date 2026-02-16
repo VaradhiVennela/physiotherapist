@@ -1,5 +1,5 @@
-// WhatsApp Number (Update with your actual number)
-const WHATSAPP_NUMBER = '+15551234567'; // Replace with your WhatsApp business number
+// WhatsApp Number (from flyer)
+const WHATSAPP_NUMBER = '+917337352694'; // Primary WhatsApp contact
 
 // Animated Counter for Statistics
 function animateCounter() {
@@ -328,4 +328,150 @@ document.addEventListener('DOMContentLoaded', () => {
     setupScrollProgressBar();
     createParticles();
     setupParallax();
+    // UX additions
+    createUXElements();
+    setupBackToTop();
+    setupBookingModal();
+    setupActiveNavLinks();
+    setupNavbarAutoHide();
 });
+
+// Create missing UI elements if they don't exist: theme toggle, book button, back-to-top
+function createUXElements(){
+    const navContainer = document.querySelector('.nav-container');
+    // No theme toggle — we use a green/cream palette by default
+    if (navContainer && !document.querySelector('.theme-toggle')){
+        // intentionally left blank
+    }
+
+    if (!document.querySelector('.book-float')){
+        const book = document.createElement('button');
+        book.className = 'book-float';
+        book.innerHTML = '<i class="fas fa-calendar-check"></i><span>Book</span>';
+        document.body.appendChild(book);
+    }
+
+    if (!document.querySelector('.back-to-top')){
+        const topBtn = document.createElement('button');
+        topBtn.className = 'back-to-top';
+        topBtn.title = 'Back to top';
+        topBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        document.body.appendChild(topBtn);
+    }
+}
+
+// Theme toggle: persist to localStorage
+function setupThemeToggle(){
+    // theme toggle removed — keep function stub for backward compatibility
+    return;
+}
+
+// Back to top button behavior
+function setupBackToTop(){
+    const btn = document.querySelector('.back-to-top');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) btn.classList.add('show');
+        else btn.classList.remove('show');
+    });
+
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+// Booking modal (creates modal on demand)
+function setupBookingModal(){
+    const book = document.querySelector('.book-float');
+    if (!book) return;
+
+    const openModal = () => {
+        if (document.querySelector('.modal-backdrop')) return;
+
+        const backdrop = document.createElement('div');
+        backdrop.className = 'modal-backdrop';
+
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-header">
+                <h3>Book an Appointment</h3>
+                <button class="modal-close" aria-label="Close">&times;</button>
+            </div>
+            <form class="modal-form">
+                <input type="text" name="name" placeholder="Your name" required />
+                <input type="tel" name="phone" placeholder="Phone" required />
+                <textarea name="msg" placeholder="Preferred date/time or message" rows="3"></textarea>
+                <button type="submit" class="submit-btn">Send via WhatsApp</button>
+            </form>
+        `;
+
+        backdrop.appendChild(modal);
+        document.body.appendChild(backdrop);
+
+        // Close handlers
+        backdrop.addEventListener('click', (e) => { if (e.target === backdrop) backdrop.remove(); });
+        modal.querySelector('.modal-close').addEventListener('click', () => backdrop.remove());
+
+        // Submit handler: open WhatsApp
+        modal.querySelector('.modal-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const name = form.name.value || '';
+            const phone = form.phone.value || '';
+            const msg = form.msg.value || '';
+            const whatsappMessage = `Booking request from ${name} (phone: ${phone})\n\n${msg}`;
+            const encoded = encodeURIComponent(whatsappMessage);
+            const phoneForForm = WHATSAPP_NUMBER.replace(/[^\d]/g, '');
+            window.open(`https://wa.me/${phoneForForm}?text=${encoded}`, '_blank');
+            backdrop.remove();
+            showNotification('Opening WhatsApp to complete booking...');
+        });
+    };
+
+    book.addEventListener('click', openModal);
+}
+
+// Highlight active nav link based on visible section
+function setupActiveNavLinks(){
+    const links = Array.from(document.querySelectorAll('.nav-link')).filter(l => l.hash);
+    if (!links.length) return;
+
+    const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const id = entry.target.id ? `#${entry.target.id}` : null;
+            const link = links.find(l => l.getAttribute('href') === id);
+            if (entry.isIntersecting && link){
+                links.forEach(l => l.classList.remove('active-link'));
+                link.classList.add('active-link');
+            }
+        });
+    }, { threshold: 0.55 });
+
+    sections.forEach(s => obs.observe(s));
+}
+
+// Hide navbar on scroll down, show on scroll up
+function setupNavbarAutoHide(){
+    const nav = document.querySelector('.navbar');
+    if (!nav) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentY = window.scrollY;
+                if (currentY > lastY && currentY > 100) {
+                    nav.style.transform = 'translateY(-110%)';
+                } else {
+                    nav.style.transform = '';
+                }
+                lastY = currentY;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
